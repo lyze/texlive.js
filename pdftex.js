@@ -3,6 +3,7 @@ var PDFTeX = function(opt_workerPath) {
     opt_workerPath = 'pdftex-worker.js';
   }
   var worker = new Worker(opt_workerPath);
+  this.worker = worker;
   var self = this;
   var initialized = false;
 
@@ -59,7 +60,7 @@ var PDFTeX = function(opt_workerPath) {
 
   var determineChunkSize = function() {
     var size = 1024;
-    var max = undefined; 
+    var max = undefined;
     var min = undefined;
     var delta = size;
     var success = true;
